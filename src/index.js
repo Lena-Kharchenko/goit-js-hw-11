@@ -91,13 +91,12 @@ function renderImgFunc(response) {
 var gallery = new SimpleLightbox('.gallery a', {});
 
 // =========================================== SCROLL ==========================================================
+function smoothScrollGallery() {
+  const { height } =
+    refs.galleryContainer.firstElementChild.getBoundingClientRect();
 
-window.addEventListener('scroll', () => {
-  const documentRect = refs.imgGallery.getBoundingClientRect();
-  if (
-    documentRect.top * -1 >
-    refs.imgGallery.clientHeight - window.visualViewport.height - 2
-  ) {
-    getImages();
-  }
-});
+  window.scrollBy({
+    top: height * 2,
+    behavior: 'smooth',
+  });
+}
