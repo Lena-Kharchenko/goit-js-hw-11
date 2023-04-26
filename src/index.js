@@ -8,10 +8,12 @@ const refs = {
   searchImgForm: document.getElementById('search-form'),
   imgNameInput: document.querySelector('input'),
   imgGallery: document.querySelector('.gallery'),
+  sentinel: document.querySelector('#sentinel'),
   API_KEY: '35661093-d03a926eaf01982ed473b40fb',
   API_URL: 'https://pixabay.com/api/',
 };
 
+const gallery = new SimpleLightbox('.gallery a');
 let page = 0;
 
 refs.searchImgForm.addEventListener('submit', onSubmitBtnClick);
@@ -84,18 +86,31 @@ function renderImgFunc(response) {
     page += 1;
     refs.imgGallery.insertAdjacentHTML('beforeend', imgList);
     gallery.refresh();
+    smoothScrollGallery();
   }
 }
 
-var gallery = new SimpleLightbox('.gallery a', {});
-
 // =========================================== SCROLL ==========================================================
 function smoothScrollGallery() {
-  const { height } =
-    refs.galleryContainer.firstElementChild.getBoundingClientRect();
+  const { height } = refs.imgGallery.firstElementChild.getBoundingClientRect();
 
   window.scrollBy({
     top: height * 2,
     behavior: 'smooth',
   });
 }
+
+const onEntry = entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && refs.imgNameInput.value != '') {
+      getImages();
+    }
+  });
+};
+
+const options = {
+  rootMargin: '200px',
+};
+const observer = new IntersectionObserver(onEntry, options);
+
+observer.observe(refs.sentinel);
