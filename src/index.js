@@ -62,24 +62,23 @@ function renderImgFunc(response) {
     const imgList = images
       .map(image => {
         return `<div class="photo-card">
-	                    <a class="gallery__link" href="${image.largeImageURL}">
-	                        <img src="${image.webformatURL}" alt="${image.tags}" loading="lazy"/>
-	                            <div class="info">
-	                                <p class="info-item">
-	                                <b>Likes</b><br> <i>${image.likes}</i>
-	                                </p>
-	                                <p class="info-item">
-	                                <b>Views</b><br> <i>${image.views}</i>
-	                                </p>
-	                                <p class="info-item">
-	                                <b>Comments</b><br> <i>${image.comments}</i>
-	                                </p>
-	                                <p class="info-item">
-	                                <b>Downloads</b><br> <i>${image.downloads}</i>
-	                                </p>
-	                            </div>
-	                    </a>
-	                </div>`;
+   <a class="gallery__link" href="${image.largeImageURL}">
+<img src="${image.webformatURL}" alt="${image.tags}" loading="lazy"/>
+ <div class="info">
+  <p class="info-item">
+<b>Likes</b><br> <i>${image.likes}</i> </p>
+ <p class="info-item">
+ <b>Views</b><br> <i>${image.views}</i>
+</p>
+<p class="info-item">
+ <b>Comments</b><br> <i>${image.comments}</i>
+</p>
+<p class="info-item">
+<b>Downloads</b><br> <i>${image.downloads}</i>
+</p>
+</div>
+</a>
+</div>`;
       })
       .join(' ');
     page += 1;
