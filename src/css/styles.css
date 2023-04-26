@@ -1,76 +1,104 @@
-.img-search-field {
-  background-color: rgb(11, 11, 162);
-  padding: 10px;
+body {
+  background: linear-gradient(
+    to right,
+    rgb(246, 150, 150),
+    rgb(245, 190, 88),
+    rgb(245, 245, 157),
+    rgb(164, 243, 164),
+    rgb(164, 164, 244),
+    rgb(210, 165, 243),
+    rgb(245, 164, 245)
+  );
+  padding: 15px;
 }
 
 .search-form {
-  display: block;
-  position: relative;
-  width: 250px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  box-shadow: 2px 1px 3px 0px rgba(0, 0, 0, 0.3);
+}
+
+.text-input {
+  width: 300px;
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 17px;
+  color: rgb(58, 57, 57);
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(206, 243, 206);
+}
+
+.text-input:focus,
+.text-input:hover {
+  outline: rgb(206, 243, 206);
 }
 
 .search-btn {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  right: 0px;
-  top: 0;
-  height: 100%;
-  width: 20%;
-  background-color: rgb(195, 192, 192);
-  border: 1px solid rgb(195, 192, 192);
-  border-left: none;
-  cursor: pointer;
-  border-radius: 0 4px 4px 0;
-  background-image: url('../img/search.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.search-field {
-  width: 100%;
-  padding-left: 15px;
+  position: relative;
+  padding: 5px 10px;
   height: 30px;
-  border: 1px solid rgb(133, 133, 133);
-  border-radius: 4px;
+  font-size: 16px;
+  color: rgb(58, 57, 57);
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(126, 126, 243);
 }
 
 .gallery {
+  padding: 10px;
   display: flex;
   flex-wrap: wrap;
-  padding: 20px;
-  justify-content: start;
+  justify-content: center;
 }
 
 .photo-card {
-  width: calc((100% - 60px) / 4);
-  height: 285px;
+  width: calc((100% - 48px) / 3);
   box-shadow: 1px 2px 7px 0px rgba(0, 0, 0, 0.62);
   margin-bottom: 10px;
+  border-radius: 5px;
 }
 
-.photo-card:not(:nth-child(4n + 4)) {
+.photo-card:not(:nth-child(3n)) {
   margin-right: 20px;
+}
+
+photo-card a:focus .image {
+  transform: scale(1.05);
+}
+
+.image {
+  transition: transform 350ms ease-in-out, filter 350ms ease-in-out;
+}
+
+.image:hover {
+  transform: scale(1.05);
 }
 
 img {
   display: block;
   width: 100%;
-  height: 70%;
+  height: 75%;
   object-fit: cover;
 }
 
 .info {
   display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 14px;
   text-align: center;
-  justify-content: space-around;
+  gap: 20px;
+  color: rgb(58, 57, 57);
 }
 
 .info-item {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }

@@ -65,7 +65,7 @@ function renderImgFunc(response) {
       .map(image => {
         return `<div class="photo-card">
    <a class="gallery__link" href="${image.largeImageURL}">
-<img src="${image.webformatURL}" alt="${image.tags}" loading="lazy"/>
+<img class="image" src="${image.webformatURL}" alt="${image.tags}" loading="lazy"/>
  <div class="info">
   <p class="info-item">
 <b>Likes</b><br> <i>${image.likes}</i> </p>
@@ -86,7 +86,6 @@ function renderImgFunc(response) {
     page += 1;
     refs.imgGallery.insertAdjacentHTML('beforeend', imgList);
     gallery.refresh();
-    smoothScrollGallery();
   }
 }
 
@@ -104,6 +103,7 @@ const onEntry = entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting && refs.imgNameInput.value != '') {
       getImages();
+      smoothScrollGallery();
     }
   });
 };
