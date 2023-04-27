@@ -90,20 +90,19 @@ function renderImgFunc(response) {
 }
 
 // =========================================== SCROLL ==========================================================
-function smoothScrollGallery() {
-  const { height } = refs.imgGallery.firstElementChild.getBoundingClientRect();
+// function smoothScrollGallery() {
+//   const { height } = refs.imgGallery.firstElementChild.getBoundingClientRect();
 
-  window.scrollBy({
-    top: height * 2,
-    behavior: 'smooth',
-  });
-}
+//   window.scrollBy({
+//     top: height * 2,
+//     behavior: 'smooth',
+//   });
+// }
 
 const onEntry = entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting && refs.imgNameInput.value != '') {
       getImages();
-      smoothScrollGallery();
     }
   });
 };

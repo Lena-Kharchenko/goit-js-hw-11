@@ -66,11 +66,7 @@ body {
 }
 
 .photo-card:not(:nth-child(3n)) {
-  margin-right: 20px;
-}
-
-photo-card a:focus .image {
-  transform: scale(1.05);
+  margin-right: 24px;
 }
 
 .image {
@@ -78,7 +74,7 @@ photo-card a:focus .image {
 }
 
 .image:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 img {
@@ -86,6 +82,7 @@ img {
   width: 100%;
   height: 75%;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .info {
